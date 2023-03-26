@@ -14,7 +14,7 @@ SECRET_KEY = env.str('SECRET_KEY', default='<NO_VALUE>')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DEBUG', default=False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 render_external_hostname = env.str('RENDER_EXTERNAL_HOSTNAME', None)
 if render_external_hostname:
     ALLOWED_HOSTS.append(render_external_hostname)
