@@ -15,7 +15,7 @@ SECRET_KEY = env.str('SECRET_KEY', default='<NO_VALUE>')
 DEBUG = env.bool('DEBUG', default=False)
 
 ALLOWED_HOSTS = [
-    'example.com'
+    'djadngo-calendar-backend.onrender.com'
 ]
 if DEBUG:
     ALLOWED_HOSTS = []
