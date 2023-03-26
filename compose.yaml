@@ -21,4 +21,4 @@ services:
       - "9090:9090"
     volumes:
       - ./backend/django_calendar:/backend/django_calendar/
-    command: django_calendar runserver 0.0.0.0:9090
+    command: django_calendar runserver 0.0.0.0:8765
