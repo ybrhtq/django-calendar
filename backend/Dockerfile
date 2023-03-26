@@ -14,3 +14,5 @@ RUN pip install --no-cache-dir -r requirements/python/requirements.txt -r requir
 COPY . .
 
 RUN pip3 install -e .
+
+RUN django_calendar collectstatic --no-input

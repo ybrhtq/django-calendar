@@ -131,3 +131,6 @@ dmypy.json
 
 # local db
 backend/postgres_data/
+
+# static
+backend/django_calendar/static/

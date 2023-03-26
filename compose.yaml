@@ -14,11 +14,24 @@ services:
     depends_on:
       - db
     environment:
-      DEBUG: True
+      DEBUG: 1
       DB_SETTINGS: '{"NAME": "django_calendar", "USER": "django_calendar",
       "PASSWORD": "django_calendar", "HOST": "db", "PORT": "5432"}'
     ports:
-      - "9090:9090"
+      - "8765:8765"
     volumes:
-      - ./backend/django_calendar:/backend/django_calendar/
+      - ./backend/django_calendar/:/backend/django_calendar/
     command: django_calendar runserver 0.0.0.0:8765
+  calendar_uwsgi:
+    build: ./backend
+    depends_on:
+      - db
+    environment:
+      DEBUG: 1
+      DB_SETTINGS: '{"NAME": "django_calendar", "USER": "django_calendar",
+      "PASSWORD": "django_calendar", "HOST": "db", "PORT": "5432"}'
+    ports:
+      - "8765:8765"
+    volumes:
+      - ./backend/django_calendar/:/backend/django_calendar/
+    command: uwsgi --ini uwsgi.ini

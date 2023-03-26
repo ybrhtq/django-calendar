@@ -2,8 +2,7 @@ import environ
 
 env = environ.Env()
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = environ.Path(__file__) - 3
+BASE_DIR = environ.Path(__file__) - 2
 
 
 # Quick-start development settings - unsuitable for production
@@ -95,8 +94,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-
 STATIC_URL = 'static/'
+STATIC_ROOT = str(BASE_DIR.path('static'))
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
