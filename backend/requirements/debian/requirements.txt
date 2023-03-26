@@ -1,0 +1,10 @@
+apt-utils
+build-essential
+python-dev
+libpq-dev
+postgresql-13
+postgresql-contrib
+# convinience things
+sudo
+vim
+tmux

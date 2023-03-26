@@ -1,0 +1,24 @@
+services:
+  db:
+    image: postgres:13
+    expose:
+      - "5432"
+    environment:
+      POSTGRES_USER: django_calendar
+      POSTGRES_PASSWORD: django_calendar
+      POSTGRES_DB: django_calendar
+    volumes:
+      - ./backend/postgres_data:/var/lib/postgresql/data
+  django_calendar:
+    build: ./backend
+    depends_on:
+      - db
+    environment:
+      DEBUG: True
+      DB_SETTINGS: '{"NAME": "django_calendar", "USER": "django_calendar",
+      "PASSWORD": "django_calendar", "HOST": "db", "PORT": "5432"}'
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./backend/django_calendar:/backend/django_calendar/
+    command: django_calendar runserver 0.0.0.0:9090
